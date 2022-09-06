@@ -1,8 +1,8 @@
-resource "aws_ecs_cluster" "cluster" {
-  name = "${var.project}-${var.environment}"
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
+resource "aws_instance" "web" {
+  ami           = "ami-076e3a557efe1aa9c"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "web-instance"
   }
-  capacity_providers = ["FARGATE", ]
 }
